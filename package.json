@@ -1,0 +1,91 @@
+{
+  "name": "company-name",
+  "version": "1.0.0",
+  "description": "the times mo api",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit",
+    "test:dev": "env NODE_ENV=test yarn sequelize && yarn test",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/index.js",
+    "build": "tsc -p tsconfig.prod.json",
+    "dev": "nodemon",
+    "lint": "eslint src/",
+    "lint:fix": "eslint --fix src/",
+    "prepare": "husky install",
+    "format": "prettier --write **/*.ts",
+    "format:check": "prettier --check **/*.ts",
+    "commit": "cz",
+    "sequelize": "yarn db:drop && yarn db:create && yarn db:migrate",
+    "db:create": "sequelize db:create",
+    "db:drop": "sequelize db:drop",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:reset:all": "sequelize db:migrate:undo:all",
+    "db:seed": "sequelize db:seed:all --seeders-path ./src/database/jobs/seeders/seeders",
+    "db:create:test": "env NODE_ENV=test npm run db:create",
+    "db:drop:test": "env NODE_ENV=test npm run db:drop",
+    "db:migrate:test": "env NODE_ENV=test npm run db:migrate",
+    "db:seed:test": "env NODE_ENV=test npm run db:seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GolgothaAksanti/node-api-template-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GolgothaAksanti/node-api-template-v2/issues"
+  },
+  "homepage": "https://github.com/GolgothaAksanti/node-api-template-v2#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3",
+    "ts-node": "^10.8.1",
+    "twilio": "^3.81.0",
+    "typescript": "^4.7.4",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/jest": "^29.0.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/morgan": "^1.9.3",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "body-parser": "^2.0.0-beta.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.0.2",
+    "lint-staged": "^13.0.2",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.7.1",
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.4",
+    "ts-jest": "^29.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
